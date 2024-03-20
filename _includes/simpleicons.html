@@ -1,0 +1,7 @@
+<!-- _includes/simpleicons.html -->
+{% assign icon_name = include.icon | downcase %}
+{% assign icon_color = include.color | default: "black" %}
+
+<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{{ icon_color }}">
+  {{ site.data.simpleicons[include.icon] }}
+</svg>

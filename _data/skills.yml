@@ -1,0 +1,28 @@
+languages:
+  - item: JAVA
+    icon: "java"
+frameworks:
+  - item: Spring
+    icon: "spring"
+  - item: Spring Boot
+    icon: "spring-boot"
+  - item: Spring Security
+    icon: "spring-security"
+tools:
+  - item: Git & Git Flow
+    icon: "git"
+  - item: Github
+    icon: "github"
+  - item: Postman
+    icon: "postman"
+  - item: Notion
+    icon: "notion"
+etc:
+  - item: AWS
+    icon: "aws"
+  - item: GCP
+    icon: "gcp"
+  - item: Github Actions
+    icon: "github-actions"
+  - item: Docker
+    icon: "docker"

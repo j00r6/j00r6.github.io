@@ -1,0 +1,56 @@
+<section class="section skills">
+  <div class="section__title">제가 사용할수 있는 기술은</div>
+  <div class="section__content">
+    <p>
+
+    </p>
+    <div class="skillz">
+      <div class="skillz__category">
+        <div class="skillz__category__label">Languages</div>
+        <ul>
+          {% for language in site.data.skills.languages %}
+          <li class="skillz__category__icon">
+            {% include simpleicons.html icon=language.icon color="#333" %}
+          </li>
+          <li class="skillz__category__item">
+            {{ language.item }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="skillz__category">
+        <div class="skillz__category__label">Frameworks</div>
+        <ul>
+          {% for framework in site.data.skills.frameworks %}
+          <li class="skillz__category__icon">
+            {% include simpleicons.html icon=framework.icon color="#333" %}
+          </li>
+          <li class="skillz__category__item">{{ framework.item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="skillz__category">
+        <div class="skillz__category__label">Tools</div>
+        <ul>
+          {% for tools in site.data.skills.tools %}
+          <li class="skillz__category__icon">
+            {% include simpleicons.html icon=tools.icon color="#333" %}
+          </li>
+          <li class="skillz__category__item">{{ tools.item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="skillz__category">
+        <div class="skillz__category__label">Etc</div>
+        <ul>
+          {% for etc in site.data.skills.etc %}
+          <li class="skillz__category__icon">
+            {% include simpleicons.html icon=etc.icon color="#333" %}
+          </li>
+          <li class="skillz__category__item">{{ etc.item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

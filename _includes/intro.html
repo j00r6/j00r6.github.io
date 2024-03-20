@@ -1,0 +1,77 @@
+<header class="intro">
+  <h1 class="intro__hello">안녕하세요!
+    <span class="emoji wave-hand animated"></span>
+  </h1>
+
+  <h2 class="intro__tagline">저는 <br>
+    <span class="txt-rotate" data-period="500" data-rotate="[  &quot;궁금한걸 못참는&quot;, &quot;시작하면 끝을 보는&quot;, &quot;탐구를 좋아하는&quot;]">
+      <span class="wrap"> </span>
+    </span>
+    <br> 신입 개발자 <span class="name">박진수</span> 입니다.<span class="emoji technologist"></span>
+  </h2>
+
+
+
+  <h3 class="intro__contact">
+    <span>Get in touch </span>
+    <span class="emoji pointer"></span>
+    <span>
+      <a href="jindory8@gmail.com" target="_blank" class="highlight-link">jindory8@gmail.com</a>
+    </span>
+  </h3>
+</header>
+
+
+<script>
+    var TxtRotate = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtRotate.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('txt-rotate');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-rotate');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtRotate(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+    };
+</script>
